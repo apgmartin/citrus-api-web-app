@@ -16,7 +16,7 @@ class CreateRouteTest extends BaseTestCase
      */
     public function testGetRoutes()
     {
-        $response = $this->runApp('GET', '/routes/new' . $this->ROUTE_ID);
+        $response = $this->runApp('GET', '/routes/new');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertContains('You are creating a new route', (string)$response->getBody());
