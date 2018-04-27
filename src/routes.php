@@ -5,21 +5,6 @@ use Slim\Http\Response;
 
 // Routes
 
-$app->get('/routes', function(Request $request, Response $response, array $args) {
-    $this->logger->info("Viewing routes");
-    return $this->renderer->render($response, 'routes.phtml', $args);
-});
-
-$app->get('/routes/new', function(Request $request, Response $response, array $args) {
-    $this->logger->info("Creating new route");
-    return $this->renderer->render($response, 'createRoute.phtml', $args);
-});
-
-$app->get('/routes/{id}', function(Request $request, Response $response, array $args) {
-    $this->logger->info("Viewing route with id " . $args['id']);
-    return $this->renderer->render($response, 'route.phtml', $args);
-});
-
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {
     // Sample log message
     $this->logger->info("Slim-Skeleton '/' route");
