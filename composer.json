@@ -1,14 +1,11 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
+    "name": "citrus-api-web-app",
+    "description": "Web application for the client facing part of an experimental API architecture",
     "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
-    "license": "MIT",
+    "homepage": "https://github.com/apgmartin/citrus-api-web-app",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Ali Martin"
         }
     ],
     "require": {
