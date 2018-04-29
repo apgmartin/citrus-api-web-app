@@ -21,6 +21,10 @@ class RouteDataDaoImpl implements RouteDataDao
         $this->logger = $logger;
     }
 
+    /**
+     * @param integer $routeId Id of route to get attributes for
+     * @return array|false Array of attributes or false if there are none associated with route.
+     */
     public function getAttributesForRoot($routeId)
     {
         $sql = "SELECT a.`id`, a.`name`, a.`description` 
@@ -35,6 +39,11 @@ class RouteDataDaoImpl implements RouteDataDao
         return $preparedStatement->fetchAll(\PDO::FETCH_CLASS, Attribute::class);
     }
 
+    /**
+     * @param integer $routeId
+     * @param array $attributeIds
+     * @return bool True or false depending on whether operation succeeded.
+     */
     public function setAttributesForRoot($routeId, $attributeIds)
     {
         $this->db->beginTransaction();
@@ -62,6 +71,11 @@ class RouteDataDaoImpl implements RouteDataDao
         return true;
     }
 
+    /**
+     * @param integer $routeId
+     * @param integer $attributeId
+     * @return bool True or false depending on whether operation succeeded.
+     */
     public function addAttributeToRoute($routeId, $attributeId)
     {
         if ($this->checkIfRouteHasAttribute($routeId, $attributeId)) {
@@ -82,6 +96,11 @@ class RouteDataDaoImpl implements RouteDataDao
         return true;
     }
 
+    /**
+     * @param integer $routeId
+     * @param integer $attributeId
+     * @return bool True if route has attribute, false if it does not.
+     */
     public function checkIfRouteHasAttribute($routeId, $attributeId) {
         $sql = "SELECT 1 FROM `route_data` WHERE `route_id` = ? AND `attribute_id` = ?";
 
@@ -96,6 +115,11 @@ class RouteDataDaoImpl implements RouteDataDao
         return boolval($stmt->fetch());
     }
 
+    /**
+     * @param integer $routeId
+     * @param integer $attributeId
+     * @return bool True or false depending on whether operation succeeded.
+     */
     public function removeAttributeFromRoute($routeId, $attributeId)
     {
         $sql = "DELETE FROM `route_data` WHERE `route_id` = ? AND `attribute_id` = ?";

@@ -10,7 +10,7 @@ class Route
     public $description;
 
     /**
-     * @return mixed
+     * @return integer Id of route
      */
     public function getId()
     {
@@ -18,7 +18,7 @@ class Route
     }
 
     /**
-     * @param mixed $id
+     * @param integer $id Id of route
      */
     public function setId($id)
     {
@@ -26,7 +26,7 @@ class Route
     }
 
     /**
-     * @return mixed
+     * @return string URI of route
      */
     public function getRoute()
     {
@@ -34,7 +34,7 @@ class Route
     }
 
     /**
-     * @param mixed $route
+     * @param string $route URI of route
      */
     public function setRoute($route)
     {
@@ -42,7 +42,7 @@ class Route
     }
 
     /**
-     * @return mixed
+     * @return array Attribute Ids associated with route
      */
     public function getAttributes()
     {
@@ -50,7 +50,7 @@ class Route
     }
 
     /**
-     * @param mixed $attributes
+     * @param array $attributes Attribute Ids associated with route
      */
     public function setAttributes($attributes)
     {
@@ -58,7 +58,7 @@ class Route
     }
 
     /**
-     * @return mixed
+     * @return string Description of route
      */
     public function getDescription()
     {
@@ -66,7 +66,7 @@ class Route
     }
 
     /**
-     * @param mixed $description
+     * @param string $description Description of route
      */
     public function setDescription($description)
     {

@@ -9,7 +9,7 @@ class Attribute
     public $description;
 
     /**
-     * @return mixed
+     * @return integer Id of attribute
      */
     public function getId()
     {
@@ -17,7 +17,7 @@ class Attribute
     }
 
     /**
-     * @param mixed $id
+     * @param integer $id Id of attribute
      */
     public function setId($id)
     {
@@ -25,7 +25,7 @@ class Attribute
     }
 
     /**
-     * @return mixed
+     * @return string Name of attribute
      */
     public function getName()
     {
@@ -33,7 +33,7 @@ class Attribute
     }
 
     /**
-     * @param mixed $name
+     * @param string $name Name of attribute
      */
     public function setName($name)
     {
@@ -41,7 +41,7 @@ class Attribute
     }
 
     /**
-     * @return mixed
+     * @return string Description of attribute
      */
     public function getDescription()
     {
@@ -49,7 +49,7 @@ class Attribute
     }
 
     /**
-     * @param mixed $description
+     * @param string $description Description of attribute
      */
     public function setDescription($description)
     {

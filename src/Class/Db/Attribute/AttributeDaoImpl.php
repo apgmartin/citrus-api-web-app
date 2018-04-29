@@ -16,6 +16,9 @@ class AttributeDaoImpl implements AttributeDao
         $this->db = $db;
     }
 
+    /**
+     * @return array Attributes associated with route
+     */
     public function getAllAttributes()
     {
         $sql = "SELECT `id`, `name`, `description` FROM `attribute`";
@@ -25,6 +28,10 @@ class AttributeDaoImpl implements AttributeDao
         return $attributes;
     }
 
+    /**
+     * @param integer $id Id of attribute
+     * @return Attribute|false Object representing attribute or false if not found
+     */
     public function getAttribute($id)
     {
         $sql = "SELECT `id`, `name`, `description` FROM `attribute` WHERE `id` = ?";

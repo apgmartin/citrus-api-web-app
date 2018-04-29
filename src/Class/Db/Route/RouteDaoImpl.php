@@ -21,6 +21,9 @@ class RouteDaoImpl implements RouteDao
         $this->routeDataDaoImpl = $routeDataDaoImpl;
     }
 
+    /**
+     * @return array Array of Route objects
+     */
     public function getAllRoutes()
     {
         $sql = "SELECT `id`, `route`, `description` FROM `route`";
@@ -34,6 +37,10 @@ class RouteDaoImpl implements RouteDao
         return $routes;
     }
 
+    /**
+     * @param integer $id Route Id
+     * @return Route|false Object representing route or false if none found
+     */
     public function getRoute($id)
     {
         $sql = "SELECT `id`, `route`, `description` FROM `route` WHERE `id` = ?";
@@ -42,11 +49,17 @@ class RouteDaoImpl implements RouteDao
         $preparedStatement->execute([$id]);
 
         $route = $preparedStatement->fetchObject(Route::class);
-        $route->setAttributes($this->routeDataDaoImpl->getAttributesForRoot($id));
+
+        if ($route) {
+            $route->setAttributes($this->routeDataDaoImpl->getAttributesForRoot($id));
+        }
 
         return $route;
     }
 
+    /**
+     * @param Route $route Object representing route to update
+     */
     public function updateRoute(Route $route)
     {
         $sql = "UPDATE `route` SET `route` = ?, `description` = ? WHERE `id` = ?";
@@ -59,6 +72,9 @@ class RouteDaoImpl implements RouteDao
         ]);
     }
 
+    /**
+     * @param Route $route Object representing route to update
+     */
     public function deleteRoute(Route $route)
     {
         $sql = "DELETE FROM `route` WHERE `id` = ?";
