@@ -7,7 +7,9 @@ use Slim\Http\Response;
 
 $app->get('/routes', function(Request $request, Response $response, array $args) {
     $this->logger->info("Viewing routes");
-    return $this->renderer->render($response, 'routes.phtml', $args);
+    $routes = $this->routeDaoImpl->getAllRoutes();
+    $args['routes'] = $routes;
+    return $this->renderer->render($response, 'viewRoutes.phtml', $args);
 });
 
 $app->get('/routes/new', function(Request $request, Response $response, array $args) {
