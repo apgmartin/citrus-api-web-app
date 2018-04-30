@@ -1,0 +1,30 @@
+<?php include 'includes/head.php' ?>
+
+<div class="container">
+    <div class="row header">
+        <h1 class="col-12 text-center header__title">Citrus-API</h1>
+        <h2 class="col-12 text-center header__nav">Navigation will go here</h2>
+    </div>
+    <?php foreach ($routes as $route): ?>
+        <div class="row route">
+            <div class="col-10 route-descriptor">
+                <h5>Route:</h5>
+                <p class="col-12 font-weight-bold"><?= $route->getRoute(); ?></p>
+                <h5>Description:</h5>
+                <p class="col-12"><?= $route->getDescription(); ?></p>
+                <h5>Attributes:</h5>
+                <ul>
+                    <?php foreach ($route->getAttributes() as $attribute): ?>
+                        <li><span class="font-weight-bold"><?= $attribute->getName(); ?></span> => <?= $route->getDescription(); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="col-2 route-actions">
+                <a href="/routes/<?= $route->getId() ?>">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </a>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
