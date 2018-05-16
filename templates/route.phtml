@@ -1,2 +1,22 @@
 <?php include 'includes/head.php' ?>
-<p>This is the route with id <?= $id ?></p>
+
+<div class="container">
+    <div class="row header">
+        <h1 class="col-12 text-center header__title">Citrus-API: Route <?= $id ?></h1>
+        <h2 class="col-12 text-center header__nav">Navigation will go here</h2>
+    </div>
+		<div class="">
+			<h2><?= $route->getRoute() ?></h2>
+			<p><?= $route->getDescription() ?></p>
+			<form action="<?= '/routes/' . $id ?>" method="post">
+				<?php foreach ($attributes as $attribute): ?>
+					<label class="attribute">
+						<input type="checkbox" name="<?= $attribute->getName() ?>" value="<?= $attribute->getId() ?>" <?= in_array($attribute->getId(), $enabledAttributeIds) ? 'checked':'' ?> >
+						<?= ucfirst($attribute->getName()) . ': ' . strtolower($attribute->getDescription()) ?>
+					</label>
+				<?php endforeach; ?>
+				<input type="submit">
+			</form>
+		</div>
+</div>
+
