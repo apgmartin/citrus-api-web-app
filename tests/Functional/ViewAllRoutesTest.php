@@ -13,6 +13,6 @@ class RoutesTest extends BaseTestCase
         $response = $this->runApp('GET', '/routes');
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('These are the current routes that have been setup', (string)$response->getBody());
+        $this->assertContains('Citrus-API: List Routes', (string)$response->getBody());
     }
 }
